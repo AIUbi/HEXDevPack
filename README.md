@@ -12,11 +12,13 @@ All this is done on a voluntary basis , and if there is a desire to join the pro
 Все это делается на добровольной основе, и если будет желание, присоединяйся к проекту.
 
 * Installation
+
 1. Download the ZIP archive.
 2. Unpack in addons.
 3. Enjoy)
 
 * Установка
+
 1. Скачай Зип архив.
 2. Распакуй в аддоны.
 3. Вперед и с песней:D
