@@ -46,5 +46,46 @@ All this is done on a voluntary basis , and if there is a desire to join the pro
 | soundParentTo      |    n,e    |     void    |  10  | Index, Entity                       | Parent channel to entity                                                                   |
 | soundGetAttribs    |     n     |      a      |  30  | Index, Array                        | Return array of attribs (Name, Time, Length, Bitrate)                                      |
 |                    |           |             |      |                                     |                                                                                            |
+
+```
+@name example_fft
+@persist [E]:entity I End
+if(first())
+{
+    runOnTick(1)
+    E = entity()
+    
+    soundSetFFT(1,1)
+    soundSetFFTAttribs(1,1)
+    soundSetFFTBitrate(1,2)
+    soundParentTo(1,E)
+    
+    soundLoadURL(1,"https://LINK_TO_YOUR_FILE.mp3",E:pos(),1,0)
+}
+if(!End && holoCanCreate())
+{ 
+    I++
+    H = holoCreate(I,E:toWorld(vec(I*3,0,0)),vec(0.2))
+    holoModel(I,"hq_sphere")
+    holoParent(I,E)    
+    H:setTrails(5,0,1.5,"trails/laser",vec(0,155,255),255)
+    if(I == 128){End = 1}
+}
+else
+{
+    Array = soundGetFFT(1)
+    while(perf())
+    {
+        I++       
+        Val = (sqrt(Array:number(I))*sqrt(256*I))*5
+        HoloPos = E:toLocal(holoEntity(I):pos()):z()
+        Pos = HoloPos+(Val-HoloPos)/10       
+        holoPos(I,E:toWorld(vec(I*3,0,Pos)))
+        
+        if(I >= 128){I = 0}
+    }
+}
+
+```
 ![SoundCore Circular visualizator0](http://puu.sh/ifUBw/498b7afeb1.jpg)
 ![SoundCore Circular visualizator1](http://puu.sh/ifUVW/aa219f6d03.jpg)
