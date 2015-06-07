@@ -15,10 +15,10 @@ All this is done on a voluntary basis , and if there is a desire to join the pro
 
 1. Download the ZIP archive.
 2. Unpack in addons.
-3. Enjoy)
+3. Enjoy
 
 * Установка
 
 1. Скачай Зип архив.
 2. Распакуй в аддоны.
-3. Вперед и с песней:D
+3. Вперед и с песней.
