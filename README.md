@@ -22,3 +22,4 @@ All this is done on a voluntary basis , and if there is a desire to join the pro
 1. Скачай Зип архив.
 2. Распакуй в аддоны.
 3. Вперед и с песней.
+
