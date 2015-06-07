@@ -46,3 +46,5 @@ All this is done on a voluntary basis , and if there is a desire to join the pro
 | soundParentTo      |    n,e    |     void    |  10  | Index, Entity                       | Parent channel to entity                                                                   |
 | soundGetAttribs    |     n     |      a      |  30  | Index, Array                        | Return array of attribs (Name, Time, Length, Bitrate)                                      |
 |                    |           |             |      |                                     |                                                                                            |
+![SoundCore Circular visualizator0](http://puu.sh/ifUBw/498b7afeb1.jpg)
+![SoundCore Circular visualizator1](http://puu.sh/ifUVW/aa219f6d03.jpg)
