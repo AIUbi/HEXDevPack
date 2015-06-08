@@ -25,6 +25,8 @@ All this is done on a voluntary basis , and if there is a desire to join the pro
 
 # Sound core
 
+It supports asynchronous and multi-threading work. If I use some of the same channels E2 I can get access to the same channel through one or another E2 . But I can not get access to foreign channels. If E2 update the information will continue to go , do not forget to use , ``` if (last ()) {soundStopURL ( 1 ) } . ```
+
 | Function name      | Args type | Return type | Cost | Args names                          | Description                                                                                |
 |--------------------|:---------:|:-----------:|:----:|-------------------------------------|--------------------------------------------------------------------------------------------|
 | soundLoadURL       |    n,s    |     void    |  10  | Index, URL                          | Create new sound with URL and parent to E2                                                 |
