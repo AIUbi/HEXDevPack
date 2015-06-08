@@ -13,8 +13,8 @@ local function wire_expression2_soundurl_fft_unpack(str, bitrate)
 	local tbl = {}
 	
 	for _ = 1, fft_bitrate_type[bitrate] do
-		
-		tbl[_] = (1/255)*(byte(str,_,_) or 0)
+				
+		tbl[_] = (1/255)*(byte(str[_]) or 0)
 		
 	end
 	

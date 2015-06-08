@@ -4,7 +4,7 @@ CreateClientConVar( "wire_expression2_soundurl_enable", "1", true, false )
 CreateClientConVar( "wire_expression2_soundurl_blacklist", "SteamID,", false, false )
 
 local clp, rnd, ts, char = math.Clamp, math.Round, tostring, string.char
-local wire_expression2_gates = {}
+local wire_expression2_gates = wire_expression2_gates or {}
 local wire_expression2_owner = LocalPlayer():EntIndex()
 local fft_bitrate_type = {[1] = 128, [2] = 256, [3] = 512, [4] = 1024, [5] = 2048}
 
@@ -13,10 +13,10 @@ local fft_bitrate_type = {[1] = 128, [2] = 256, [3] = 512, [4] = 1024, [5] = 204
 local function wire_expression2_soundurl_fft_pack(tbl, bitrate)
 	
 	local str = ""
-
+	
 	for _ = 1, fft_bitrate_type[bitrate] do
-		
-		str = str..char(clp(rnd((tbl[_] or 0)*255),0,255))
+
+		str = str..char(clp(rnd((tbl[_] or 0)*255), 0, 255))
 		
 	end
 
@@ -138,22 +138,17 @@ end
 
 local function wire_expression2_soundurl_create_cell(expression2_id, channel_id, owner_id)
 	
-	wire_expression2_gates[expression2_id] = 
+	wire_expression2_gates[expression2_id].owner_id = owner_id
+	
+	wire_expression2_gates[expression2_id][channel_id] = 
 	{
-		[channel_id] = 
-		{
-			fft_table_mode = false, 
-			fft_attrib_mode = false,
-			fft_bitrate_type = 1,
-			name = "",
-			time = {0, 0}, 
-			station = nil,
-			fft = "",
-			expression2_id = expression2_id,
-			channel_id = channel_id,
-			parent_ent_id = 0,
-		},
-		owner_id = owner_id
+		fft_table_mode = false, 
+		fft_attrib_mode = false,
+		fft_bitrate_type = 1, 
+		station = nil,
+		expression2_id = expression2_id,
+		channel_id = channel_id,
+		parent_ent_id = 0,
 	}
 	
 end
@@ -174,23 +169,16 @@ local function wire_expression2_soundurl_play(url, vector, expression2_id, owner
 		station:SetVolume(volume or 0)
 		station:SetPos(vector)
 		
-		wire_expression2_gates[expression2_id] =
-		{
-			[channel_id] = 
+		wire_expression2_gates[expression2_id][channel_id] = 
 			{
 				fft_table_mode = wire_expression2_gates[expression2_id][channel_id].fft_table_mode or false, 
 				fft_attrib_mode = wire_expression2_gates[expression2_id][channel_id].fft_attrib_mode or false,
-				fft_bitrate_type = wire_expression2_gates[expression2_id][channel_id].fft_bitrate_type or 1,
-				name = station:GetFileName(),
-				time = {0, station:GetLength()}, 
+				fft_bitrate_type = wire_expression2_gates[expression2_id][channel_id].fft_bitrate_type or 1, 
 				station = station,
-				fft = "",
 				expression2_id = wire_expression2_gates[expression2_id][channel_id].expression2_id,
 				channel_id = wire_expression2_gates[expression2_id][channel_id].channel_id,	
 				parent_ent_id = wire_expression2_gates[expression2_id][channel_id].parent_ent_id or wire_expression2_gates[expression2_id][channel_id].expression2_id			
-			},
-			owner_id = owner_id
-		}
+			}
 		
 	end)
 	
