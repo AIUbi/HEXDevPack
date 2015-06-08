@@ -66,8 +66,14 @@ local function wire_expression2_soundurl_fft_check()
 			
 			if type(o) == "table" and o.station and o.parent_ent_id > 0 then 
 				
-				o.station:SetPos(ents.GetByIndex(o.parent_ent_id):GetPos())
-			
+				local user = ents.GetByIndex(o.parent_ent_id)
+				
+				if IsValid(user) then
+				
+					o.station:SetPos(user:GetPos())
+				
+				end
+				
 			end
 			
 		end
