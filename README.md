@@ -55,6 +55,7 @@ It supports asynchronous and multi-threading work. If I use some of the same cha
 if(first())
 {
     runOnTick(1)
+    runOnLast(1)
     E = entity()
     
     soundSetFFT(1,1)
@@ -79,7 +80,7 @@ else
     while(perf())
     {
         I++       
-        Val = (sqrt(Array:number(I))*sqrt(256*I))*5
+        Val =  sqrt(Array:number(I)*32*sqrt(I))*5
         HoloPos = E:toLocal(holoEntity(I):pos()):z()
         Pos = HoloPos+(Val-HoloPos)/10       
         holoPos(I,E:toWorld(vec(I*3,0,Pos)))
@@ -87,7 +88,10 @@ else
         if(I >= 128){I = 0}
     }
 }
-
+if(last())
+{
+    soundStopURL(1)
+}
 ```
 ![SoundCore Circular visualizator0](http://puu.sh/ifUBw/498b7afeb1.jpg)
 ![SoundCore Circular visualizator1](http://puu.sh/ifUVW/aa219f6d03.jpg)
