@@ -26,6 +26,7 @@ All this is done on a voluntary basis , and if there is a desire to join the pro
 # Sound core
 
 It supports asynchronous and multi-threading work. If I use some of the same channels E2 I can get access to the same channel through one or another E2 . But I can not get access to foreign channels. If E2 update the information will continue to go , do not forget to use , ``` if (last ()) {soundStopURL ( 1 ) } . ```
+Поддерживает асинхронную и многпоточную обработку, если я буду использовать несколько Е2 с одним и тем же аудиоканалом я смогу получить доступ к каналу и принять из него частотный спектр или произвести другие манипуляции. но я не смогу получиь доступ к каналам у которых я не являюсь владельцем. Если Е2 обновится то канал сохранится и будет так передавать информацию как будто ее не было. Не забывайте использовать вот это ``` if (last ()) {soundStopURL ( 1 ) } . ```
 
 | Function name      | Args type | Return type | Cost | Args names                          | Description                                                                                |
 |--------------------|:---------:|:-----------:|:----:|-------------------------------------|--------------------------------------------------------------------------------------------|
