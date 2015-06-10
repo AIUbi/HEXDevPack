@@ -167,14 +167,14 @@ __e2setcost(10)
 e2function void soundLoadURL(channel_id, string url)
 
 	wire_expression2_soundurl_sender(0, self.entity:EntIndex(), channel_id, self.player:EntIndex(), false, url, self.entity:GetPos(), 1, 0)
-	soundParentTo(channel_id, self.entity:EntIndex())
+	wire_expression2_soundurl_sender(9, self.entity:EntIndex(), channel_id, self.player:EntIndex(), entity:EntIndex())
 	
 end
 
 e2function void soundLoadURL(channel_id, string url, volume, noplay)
 
 	wire_expression2_soundurl_sender(0, self.entity:EntIndex(), channel_id, self.player:EntIndex(), false, url, self.entity:GetPos(), volume, noplay)
-	soundParentTo(channel_id, self.entity:EntIndex())
+	wire_expression2_soundurl_sender(9, self.entity:EntIndex(), channel_id, self.player:EntIndex(), entity:EntIndex())
 	
 end
 
